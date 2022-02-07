@@ -9,30 +9,30 @@ HowManyCards();
 
 function HowManyCards(){
     let condicao = true;
-    let quantidadeCartas = null;
+    let qntCartas = null;
 
     while(condicao === true){
-        quantidadeCartas = prompt("Insira a quantidade de cartas: (4-14)");
-        if(quantidadeCartas >= 4 && quantidadeCartas <= 14 && quantidadeCartas%2==0)
+        qntCartas = prompt("Insira a quantidade de cartas: (4-14)");
+        if(qntCartas >= 4 && qntCartas <= 14 && qntCartas%2==0)
             condicao = false;
     }
 
-    for(let i=0; i<(quantidadeCartas/2); i++){
+    for(let i=0; i<(qntCartas/2); i++){
         cards.push(i);
         cards.push(i);
     }
 
-    qntPairs = quantidadeCartas/2;
+    qntPairs = qntCartas/2;
     cards.sort(comparador);
     
-    insereCartas(quantidadeCartas);
+    insereCartas(qntCartas);
 }
 
-function insereCartas(quantidadeCartas){
+function insereCartas(qntCartas){
 
     let main = document.querySelector("main");
 
-    for(let i=0; i<quantidadeCartas; i++){
+    for(let i=0; i<qntCartas; i++){
         main.innerHTML = main.innerHTML 
             + `<div class='card par${cards[i]}' onclick='clickCarta(this)' data-identifier="card"><div class="front-face face" data-identifier="front-face"><img src='imagens/front.png'></div><div class='back-face face' data-identifier="back-face">` 
             + tipoGif(cards[i]) 
